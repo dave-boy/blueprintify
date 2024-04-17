@@ -1,0 +1,11 @@
+import React from 'react'
+
+function Notification() {
+  return (
+    <div className="absolute flex rounded-full  right-3 bg-[#fff2] h-14 w-[200px]">
+      
+    </div>
+  )
+}
+
+export default Notification

@@ -2,32 +2,333 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+::-webkit-scrollbar {
+  width: 4px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+::-webkit-scrollbar-thumb {
+  background-color: #fff;
+  border-radius: 15px;
+  margin: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff63;
+
+}
+
+
+/* END OF SCROLLBAR */
+
+* {
+  margin: 0;
+  padding: 0;
+  transition: all ease 0.1ms;
+}
+
+
+body {
+  background: #101720;
+}
+
+
+
+.parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('/Life of a graphic designer.jpeg');
+}
+
+.parallax1 {
+  background-position: 20% 20%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('/Nature & Nicegirl.jpeg');
+}
+
+.parallax2 {
+  background-position: 20% 20%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('/nft.jpeg');
+}
+
+.pic {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('/nft2.png');
+}
+
+.btn-23,
+.btn-23 *,
+.btn-23 :after,
+.btn-23 :before,
+.btn-23:after,
+.btn-23:before {
+  border: 0 solid;
+  box-sizing: border-box;
+}
+
+.btn-23 {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: EXPLORE;
+  background-color: #6a37c9;
+  background-image: none;
+  color: #fff;
+  cursor: pointer;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-size: 120%;
+  font-weight: 900;
+  line-height: 1.5;
+  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+  text-transform: uppercase;
+
+}
+
+.btn-23:disabled {
+  cursor: default;
+}
+
+.btn-23:-moz-focusring {
+  outline: auto;
+}
+
+.btn-23 svg {
+  display: block;
+  vertical-align: middle;
+}
+
+.btn-23 [hidden] {
+  display: none;
+}
+
+.btn-23 {
+  border-radius: 10px;
+  border-width: 2px;
+  overflow: hidden;
+  padding: 0.8rem 3rem;
+  position: relative;
+}
+
+.btn-23 span {
+  display: grid;
+  inset: 0;
+  place-items: center;
+  position: absolute;
+  transition: opacity 0.2s ease;
+}
+
+.btn-23 .marquee {
+  --spacing: 5em;
+  --start: 0em;
+  --end: 5em;
+  -webkit-animation: marquee 1s linear infinite;
+  animation: marquee 1s linear infinite;
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+  opacity: 0;
+  position: relative;
+  text-shadow: #fff var(--spacing) 0, #fff calc(var(--spacing) * -1) 0,
+    #fff calc(var(--spacing) * -2) 0;
+}
+
+.btn-23:hover .marquee {
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+  opacity: 1;
+}
+
+.btn-23:hover .text {
+  opacity: 0;
+}
+
+@-webkit-keyframes marquee {
+  0% {
+    transform: translateX(var(--start));
+  }
+
+  to {
+    transform: translateX(var(--end));
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@keyframes marquee {
+  0% {
+    transform: translateX(var(--start));
+  }
+
+  to {
+    transform: translateX(var(--end));
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+
+
+.container {
+  display: flex;
+  overflow: auto;
+  scroll-snap-type: x mandatory;
+  padding: 10px;
+  gap: 10px;
+  scroll-padding: 10px;
+  background: transparent;
+  color: transparent;
+}
+
+
+
+.container .item {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  scroll-snap-align: start;
+  scroll-behavior: smooth;
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: .2rem;
+}
+
+
+
+
+
+/* Media queries for responsiveness */
+@media (min-width: 300px) and (max-width: 600px)  {
+  .accordion .text {
+    height: 100%;
+    flex: 1;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: all .5s;
+  }
+
+  .accordion .text h2 {
+    min-width: 14em;
+    padding: .5em;
+    text-align: center;
+    transform: rotate(0);
+    transition: all .5s;
+    text-transform: uppercase;
+  }
+
+  .accordion .text:hover h2 {
+    margin-bottom: 500px;
+  }
+
+  .accordion .text p {
+    visibility: hidden;
+    background: #000;
+    transform: rotate(0);
+    transition: all .2s;
+    text-transform: uppercase;
+  }
+
+  .accordion .text:hover p {
+    width: 100%;
+    /* transform: rotate(0); */
+    margin-right: 0;
+    visibility: visible;
+    transition: all .2s;
+  }
+
+}
+
+@media (min-width: 600px) and (max-width: 1040px) {
+  .accordion .text {
+    height: 100%;
+    flex: 1;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: all .5s;
+  }
+
+  .accordion .text h2 {
+    min-width: 14em;
+    padding: .5em;
+    text-align: center;
+    /* transform: rotate(-90deg); */
+    transition: all .5s;
+    text-transform: uppercase;
+  }
+
+  .accordion .text:hover h2 {
+    transform: rotate();
+    margin-bottom: 500px;
+  }
+
+  .accordion .text p {
+    visibility: hidden;
+    background: #000;
+    /* transform: rotate(-90deg); */
+    transition: all .2s;
+    text-transform: uppercase;
+  }
+
+  .accordion .text:hover p {
+    width: 100%;
+    /* transform: rotate(0); */
+    margin-right: 0;
+    visibility: visible;
+    transition: all .2s;
+  }
+}
+@media (min-width: 1040px) and (max-width: 2040px) {
+  .accordion .text {
+    height: 100%;
+    flex: 1;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: all .5s;
+  }  
+
+  .accordion .text:hover {
+    flex: 1 0 50%;
+  }
+
+  .accordion .text h2 {
+    padding: .5em;
+    text-align: center;
+    transform: rotate(-90deg);
+    transition: all .5s;
+    text-transform: uppercase;
+  }
+
+  .accordion .text:hover h2 {
+    transform: rotate(0);
+    margin-bottom: 500px;
+  }
+
+  .accordion .text p {
+    visibility: hidden;
+    background: #000;
+    transform: rotate(-90deg);
+    transition: all .2s;
+    text-transform: uppercase;
+  }
+
+  .accordion .text:hover p {
+    width: 100%;
+    transform: rotate(0);
+    margin-right: 0;
+    visibility: visible;
+    transition: all .2s;
   }
 }
